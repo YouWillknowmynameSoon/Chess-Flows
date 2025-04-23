@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chess Flows</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1E3A8A, #3B82F6);
+      color: white;
+    }
+
+    header {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .brand {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    .tagline {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: 500;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px 60px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    .btn {
+      background-color: white;
+      color: #1E3A8A;
+      padding: 15px 30px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #e0e7ff;
+      transform: translateY(-2px);
+    }
+
+    .section {
+      padding: 60px 20px;
+      background: white;
+      color: #1E3A8A;
+    }
+
+    .section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.2rem;
+    }
+
+    .features, .testimonials {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .feature-item, .testimonial-item {
+      background-color: #f1f5f9;
+      padding: 30px;
+      border-radius: 15px;
+      width: 280px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .testimonial-item {
+      color: #333;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: #1E3A8A;
+      color: white;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background-color: white;
+      padding: 40px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      color: #1E3A8A;
+    }
+
+    .modal-content input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .modal-content button {
+      width: 100%;
+      padding: 12px;
+      background-color: #3B82F6;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      border-radius: 8px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .modal-content #google-signin-button {
+      margin-top: 10px;
+      background-color: #ef4444;
+    }
+
+    .close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Sign-in Modal -->
+  <div class="modal" id="signUpModal">
+    <div class="modal-content">
+      <h2>Join Chess Flows</h2>
+      <input type="text" placeholder="Name" />
+      <input type="email" placeholder="Email" />
+      <input type="password" placeholder="Password" />
+      <button>Sign Up</button>
+      <!-- Google Sign-in Button -->
+      <div id="google-signin-button"></div>
+    </div>
+    <span class="close" onclick="closeSignUpModal()">&times;</span>
+  </div>
+
+  <!-- Header Section -->
+  <header>
+    <h1 class="brand">Chess Flows</h1>
+    <p class="tagline">Master Chess with AI. Learn. Adapt. Dominate.</p>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Features</a>
+      <a href="#">About</a>
+      <a href="#" onclick="openSignUpModal()">Join</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>Level Up Your Game</h1>
+    <p>Chess Flows gives you a personalized training experience using AI. Challenge your mind and grow your game every day.</p>
+    <button class="btn" onclick="openSignUpModal()">Get Started</button>
+  </div>
+
+  <!-- Features Section -->
+  <section class="section">
+    <h2>Features</h2>
+    <div class="features">
+      <div class="feature-item">
+        <h3>🤖 AI Tutors</h3>
+        <p>Smart coaching that adapts to you.</p>
+      </div>
+      <div class="feature-item">
+        <h3>📈 Insights</h3>
+        <p>Track your progress and see improvement.</p>
+      </div>
+      <div class="feature-item">
+        <h3>♟️ Strategic Paths</h3>
+        <p>Personalized learning flows to sharpen your strategy.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="section">
+    <h2>What People Say</h2>
+    <div class="testimonials">
+      <div class="testimonial-item">
+        <p>"This helped me reach 2000+ ELO. Best training ever."</p>
+        <strong>- Alex</strong>
+      </div>
+      <div class="testimonial-item">
+        <p>"I love how the AI adapts to my weaknesses. It's genius."</p>
+        <strong>- Priya</strong>
+      </div>
+      <div class="testimonial-item">
+        <p>"Feels like having a real coach 24/7."</p>
+        <strong>- David</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2025 Chess Flows. All rights reserved.</p>
+  </footer>
+
+  <!-- Google OAuth Script -->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script>
+    function renderGoogleButton() {
+      gapi.load('auth2', function() {
+        gapi.auth2.init({
+          client_id: 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com', // Replace with your client ID
+        }).then(function() {
+          gapi.signin2.render('google-signin-button', {
+            'scope': 'profile email',
+            'longtitle': true,
+            'theme': 'dark',
+            'onsuccess': onSignIn,
+          });
+        });
+      });
+    }
+
+    function onSignIn(googleUser) {
+      const idToken = googleUser.getAuthResponse().id_token;
+      const profile = googleUser.getBasicProfile();
+      const userName = profile.getName();
+      const userEmail = profile.getEmail();
+
+      console.log('Signed in as: ' + userName);
+      console.log('User email: ' + userEmail);
+
+      fetch('/auth/google', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token: idToken })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Successfully authenticated:', data);
+        // Redirect or update the UI as needed
+      })
+      .catch(error => {
+        console.error('Error during authentication:', error);
+      });
+    }
+
+    function openSignUpModal() {
+      document.getElementById('signUpModal').style.display = 'flex';
+      renderGoogleButton(); // Load Google Sign-In when the modal opens
+    }
+
+    function closeSignUpModal() {
+      document.getElementById('signUpModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('signUpModal');
+      if (event.target === modal) {
+        closeSignUpModal();
+      }
+    }
+  </script>
+</body>
+</html>
